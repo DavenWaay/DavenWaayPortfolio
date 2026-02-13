@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import bg from '../assets/bg3.jpg';
 import Evt from '../assets/EventRegistration.png';
 import tnt from '../assets/tnt/tntThumbnail.png';
-import ReviewHero from '../assets/ReviewHero.png';
+import ReviewHero from '../assets/reviewHero.png';
 import Hacktivate from '../assets/hacktivate.png';
 import { useEffect } from 'react';
 
