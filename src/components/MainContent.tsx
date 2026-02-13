@@ -1,6 +1,8 @@
 import styles from './MainContent.module.css';
 import Navbar from './Navbar';
+import { Link } from 'react-router-dom';
 import bg from '../assets/bg3.jpg';
+import cv from '../assets/Resume_DavenWaay.pdf';
 import Evt from '../assets/EventRegistration.png';
 import tnt from '../assets/tnt/tntThumbnail.png';
 import ReviewHero from '../assets/reviewHero.png';
@@ -71,8 +73,7 @@ export default function MainContent() {
                     </h1>
                     
                     <p className={styles.heroSubtitle}>
-                        A 4th Year BSIT Student. I build web and mobile applications, handle databases, and design intuitive user interfaces. Skills in collaborative tools, editing software, and version control.
-                    </p>
+                        A 4th Year BSIT Student. I build web and mobile applications, handle databases, and design intuitive user interfaces.</p>
                     
                     <div className={styles.buttonGroup}>
                         <button className={styles.primaryButton}>
@@ -81,12 +82,16 @@ export default function MainContent() {
                                 <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                         </button>
-                        <button className={styles.secondaryButton}>
+                        <a 
+                            href={cv} 
+                            download="DavenWaay-Resume.pdf"
+                            className={styles.secondaryButton}
+                        >
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M10 3V13M10 13L6 9M10 13L14 9M4 17H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
-                            Download CV
-                        </button>
+                            Download Resume
+                        </a>
                     </div>
                     
                 </div>
@@ -302,7 +307,7 @@ export default function MainContent() {
                         <p className={styles.projectDescription}>
                             Think n’ Tinker is an interactive learning app designed to help young children explore foundational concepts through engaging, play-based, and multi-sensory activities.
                         </p>
-                        <a className={styles.projectLink} href="#" target="_blank" rel="noopener noreferrer">
+                        <Link className={styles.projectLink} to="/think-n-tinker">
                             <span className={styles.projectLinkIcon} aria-hidden="true">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M14 3h7v7"></path>
@@ -310,8 +315,8 @@ export default function MainContent() {
                                     <path d="M5 5v14a2 2 0 0 0 2 2h14"></path>
                                 </svg>
                             </span>
-                            Live Demo
-                        </a>
+                            More Info
+                        </Link>
                     </div>
                 </div>
 
@@ -325,6 +330,8 @@ export default function MainContent() {
                         <span className={styles.projectPill}>React</span>
                         <span className={styles.projectPill}>Vite</span>
                         <span className={styles.projectPill}>NextJs</span>
+                        <span className={styles.projectPill}>MVC</span>
+                        <span className={styles.projectPill}>ORM</span>
                     </div>
 
                     <div className={styles.projectBody}>
@@ -352,18 +359,18 @@ export default function MainContent() {
                     </div>
 
                     <div className={styles.projectMetaRow}>
-                        <span className={styles.projectPill}>Cafe</span>
-                        <span className={styles.projectPill}>Menu</span>
-                        <span className={styles.projectPill}>Lifestyle</span>
+                        <span className={styles.projectPill}>React</span>
+                        <span className={styles.projectPill}>HTML</span>
+                        <span className={styles.projectPill}>CSS</span>
+                        <span className={styles.projectPill}>Javascript</span>
                     </div>
 
                     <div className={styles.projectBody}>
                         <h3 className={styles.projectTitle}>Hacktivate</h3>
                         <p className={styles.projectDescription}>
-                            Specialty Coffee Roastery & Cafe in Kawit, Cavite. Showcasing an industrial-inspired
-                            interior and an extensive coffee menu.
+                           This website is a group portfolio that showcases the team’s work, skills, and fields of experience.
                         </p>
-                        <a className={styles.projectLink} href="https://slricta.github.io/team-portfolio-project/#/Projects" target="_blank" rel="noopener noreferrer">
+                        <a className={styles.projectLink} href="https://slricta.github.io/team-portfolio-project/" target="_blank" rel="noopener noreferrer">
                             <span className={styles.projectLinkIcon} aria-hidden="true">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M14 3h7v7"></path>
@@ -378,20 +385,19 @@ export default function MainContent() {
 
                 <div className={styles.projectCard}>
                     <div className={styles.projectHero}>
-                        <img src={ReviewHero} alt="Akafe Roastery hero" className={styles.projectHeroImage} />
+                        <img src={ReviewHero} alt="Review Hero" className={styles.projectHeroImage} />
                     </div>
 
                     <div className={styles.projectMetaRow}>
-                        <span className={styles.projectPill}>Cafe</span>
-                        <span className={styles.projectPill}>Menu</span>
-                        <span className={styles.projectPill}>Lifestyle</span>
+                        <span className={styles.projectPill}>React</span>
+                        <span className={styles.projectPill}>Framer</span>
+                        <span className={styles.projectPill}>MongoDB</span>
                     </div>
 
                     <div className={styles.projectBody}>
-                        <h3 className={styles.projectTitle}>Akafe Roastery</h3>
+                        <h3 className={styles.projectTitle}>Review Hero</h3>
                         <p className={styles.projectDescription}>
-                            Specialty Coffee Roastery & Cafe in Kawit, Cavite. Showcasing an industrial-inspired
-                            interior and an extensive coffee menu.
+                            A webapp created to help students study through digital flashcards and quizzes to make learning more effective and accessible.
                         </p>
                         <a className={styles.projectLink} href="#" target="_blank" rel="noopener noreferrer">
                             <span className={styles.projectLinkIcon} aria-hidden="true">

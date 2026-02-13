@@ -3,12 +3,27 @@ import styles from './Navbar.module.css';
 
 export default function Navbar() {
     const [active, setActive] = useState<string>('home');
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
     const handleClick = (e: React.MouseEvent, id: string) => {
         e.preventDefault();
         const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (el) {
+            const navbarHeight = 20;
+            const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition - navbarHeight;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
         setActive(id);
+        setIsMenuOpen(false);
+    };
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
     };
 
     useEffect(() => {
@@ -27,7 +42,7 @@ export default function Navbar() {
                     }
                 });
             },
-            { root: null, rootMargin: '0px', threshold: 0.45 }
+            { root: null, rootMargin: '-120px 0px 0px 0px', threshold: 0.2 }
         );
 
         sections.forEach(s => observer.observe(s));
@@ -38,7 +53,16 @@ export default function Navbar() {
     return (
         <div className={styles.container}>
             <h1 className={styles.logo}>Daven Waay</h1>
-            <nav className={styles.nav}>
+            <button 
+                className={styles.hamburger} 
+                onClick={toggleMenu}
+                aria-label="Toggle menu"
+            >
+                <span className={`${styles.hamburgerLine} ${isMenuOpen ? styles.open : ''}`}></span>
+                <span className={`${styles.hamburgerLine} ${isMenuOpen ? styles.open : ''}`}></span>
+                <span className={`${styles.hamburgerLine} ${isMenuOpen ? styles.open : ''}`}></span>
+            </button>
+            <nav className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ''}`}>
                 <ul className={styles.navList}>
                     <li>
                         <a

@@ -332,6 +332,18 @@
 }
 
 /* Responsive breakpoints for flex layout */
+@media (max-width: 1200px) {
+    .cardContainer .techCard {
+        flex: 0 1 calc(20% - 1rem);
+        min-width: 135px;
+    }
+    
+    .mostUsedRow .techCard {
+        flex: 0 1 calc(20% - 1rem);
+        min-width: 135px;
+    }
+}
+
 @media (max-width: 1024px) {
     .cardContainer .techCard {
         flex: 0 1 calc(25% - 1rem);
@@ -346,13 +358,37 @@
 
 @media (max-width: 768px) {
     .cardContainer .techCard {
-        flex: 0 1 calc(33.333% - 1rem);
-        min-width: 120px;
+        flex: 0 1 calc(33.333% - 0.9rem);
+        min-width: 115px;
     }
     
     .mostUsedRow .techCard {
-        flex: 0 1 calc(50% - 1rem);
-        min-width: 120px;
+        flex: 0 1 calc(50% - 0.9rem);
+        min-width: 115px;
+    }
+    
+    .cardContainer,
+    .mostUsedRow {
+        gap: 0.9rem;
+        padding: 0 0.75rem;
+    }
+    
+    .techCard {
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+    
+    .iconContainer {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .iconTitle {
+        font-size: 0.85rem;
+    }
+    
+    .iconSubtitle {
+        font-size: 0.68rem;
     }
     
     .techSubtitle {
@@ -360,16 +396,68 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
     .cardContainer .techCard,
     .mostUsedRow .techCard {
         flex: 0 1 calc(50% - 0.75rem);
-        min-width: 100px;
+        min-width: 110px;
     }
     
     .cardContainer,
     .mostUsedRow {
         gap: 0.75rem;
+        padding: 0 0.5rem;
+    }
+    
+    .techCard {
+        padding: 0.45rem;
+        gap: 0.45rem;
+    }
+    
+    .iconContainer {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .iconTitle {
+        font-size: 0.8rem;
+    }
+    
+    .iconSubtitle {
+        font-size: 0.65rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cardContainer .techCard,
+    .mostUsedRow .techCard {
+        flex: 0 1 calc(50% - 0.6rem);
+        min-width: 95px;
+    }
+    
+    .cardContainer,
+    .mostUsedRow {
+        gap: 0.6rem;
+        padding: 0 0.5rem;
+    }
+    
+    .techCard {
+        padding: 0.4rem;
+        gap: 0.4rem;
+    }
+    
+    .iconContainer {
+        width: 32px;
+        height: 32px;
+        padding: 0.25rem;
+    }
+    
+    .iconTitle {
+        font-size: 0.75rem;
+    }
+    
+    .iconSubtitle {
+        font-size: 0.6rem;
     }
     
     .techSubtitle {
@@ -508,9 +596,10 @@
     animation: slideFromRight 0.7s ease-out forwards;
 }
 
-.projectCard.animate:nth-child(2) { animation-delay: 0.5s; }
-.projectCard.animate:nth-child(3) { animation-delay: 0.75s; }
-.projectCard.animate:nth-child(4) { animation-delay: 1.0s; }
+.projectCard.animate:nth-child(2) { animation-delay: 0.2s; }
+.projectCard.animate:nth-child(3) { animation-delay: 0.4s; }
+.projectCard.animate:nth-child(4) { animation-delay: 0.6s; }
+.projectCard.animate:nth-child(5) { animation-delay: 0.8s; }
 
 .projectCard::before {
     content: "";

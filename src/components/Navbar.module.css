@@ -1,6 +1,6 @@
 .container {
-    position: absolute;
-    top: 2rem;
+    position: fixed;
+    top: .5rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 50;
@@ -77,4 +77,120 @@
     color: #4A90E2;
     border-bottom: 2px solid #4A90E2;
     padding-bottom: 0.15rem;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 22px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 60;
+}
+
+.hamburgerLine {
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburgerLine.open:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+}
+
+.hamburgerLine.open:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburgerLine.open:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 0 1rem;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+        padding-left: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav {
+        position: fixed;
+        top: 6rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 500px;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 14px;
+        border: 1px solid rgba(74, 144, 226, 0.3);
+        padding: 1.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .navOpen {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navList {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .navList li {
+        width: 100%;
+    }
+
+    .link {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        text-align: center;
+        background: rgba(74, 144, 226, 0.1);
+        border-radius: 8px;
+        transition: all 0.2s ease;
+    }
+
+    .link:hover {
+        background: rgba(74, 144, 226, 0.2);
+        transform: translateY(0);
+    }
+
+    .active {
+        background: rgba(74, 144, 226, 0.25);
+        border-bottom: none;
+        padding-bottom: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        height: 64px;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
 }
