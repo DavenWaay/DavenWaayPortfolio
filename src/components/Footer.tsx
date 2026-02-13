@@ -2,7 +2,7 @@ import styles from './Footer.module.css';
 
 export default function Footer() {
     return (
-        <footer className={styles.footer}>
+        <footer id="contact" className={styles.footer}>
             <div className={styles.inner}>
                 <div className={styles.profile}>
                     <p className={styles.name}>Daven H, Waay.</p>
