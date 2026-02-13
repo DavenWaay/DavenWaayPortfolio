@@ -1,7 +1,6 @@
 import styles from './MainContent.module.css';
 import Navbar from './Navbar';
 import bg from '../assets/bg3.jpg';
-import akafeImg from '../assets/Akafe.png';
 import Evt from '../assets/EventRegistration.png';
 import tnt from '../assets/tnt/tntThumbnail.png';
 import ReviewHero from '../assets/ReviewHero.png';
