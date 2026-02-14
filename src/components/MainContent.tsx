@@ -399,7 +399,7 @@ export default function MainContent() {
                         <p className={styles.projectDescription}>
                             A webapp created to help students study through digital flashcards and quizzes to make learning more effective and accessible.
                         </p>
-                        <a className={styles.projectLink} href="#" target="_blank" rel="noopener noreferrer">
+                        {/* <a className={styles.projectLink} href="" target="_blank" rel="noopener noreferrer">
                             <span className={styles.projectLinkIcon} aria-hidden="true">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M14 3h7v7"></path>
@@ -408,7 +408,7 @@ export default function MainContent() {
                                 </svg>
                             </span>
                             Live Demo
-                        </a>
+                        </a> */}
                     </div>
                 </div>
             </section>
