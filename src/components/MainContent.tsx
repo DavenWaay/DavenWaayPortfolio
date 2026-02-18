@@ -7,7 +7,7 @@ import Evt from '../assets/EventRegistration.png';
 import tnt from '../assets/tnt/tntThumbnail.png';
 import ReviewHero from '../assets/reviewHero.png';
 import Hacktivate from '../assets/hacktivate.png';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 export default function MainContent() {
     useEffect(() => {
@@ -47,6 +47,30 @@ export default function MainContent() {
         };
     }, []);
 
+    // Ensure project cards share the same height (match tallest card)
+    useEffect(() => {
+        const setEqualHeights = () => {
+            const cards = Array.from(document.querySelectorAll(`.${styles.projectCard}`)) as HTMLElement[];
+            if (!cards.length) return;
+            // reset
+            cards.forEach(c => { c.style.minHeight = ''; });
+            const heights = cards.map(c => c.offsetHeight);
+            const max = Math.max(...heights);
+            cards.forEach(c => { c.style.minHeight = `${max}px`; });
+        };
+
+        // run after images/fonts load
+        const rafId = requestAnimationFrame(setEqualHeights);
+        window.addEventListener('resize', setEqualHeights);
+        window.addEventListener('load', setEqualHeights);
+
+        return () => {
+            cancelAnimationFrame(rafId);
+            window.removeEventListener('resize', setEqualHeights);
+            window.removeEventListener('load', setEqualHeights);
+        };
+    }, []);
+
     return (
         <main className={styles.mainContent}>
             <section id="home" className={styles.heroSection}>
@@ -76,12 +100,21 @@ export default function MainContent() {
                         A 4th Year BSIT Student. I build web and mobile applications, handle databases, and design intuitive user interfaces.</p>
                     
                     <div className={styles.buttonGroup}>
-                        <button className={styles.primaryButton}>
+                        <a
+                            href="#projects"
+                            className={styles.primaryButton}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                const target = document.getElementById('projects');
+                                if (target) target.scrollIntoView({ behavior: 'smooth' });
+                                else window.location.hash = '#projects';
+                            }}
+                        >
                             See My Work
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
-                        </button>
+                        </a>
                         <a 
                             href={cv} 
                             download="DavenWaay-Resume.pdf"
