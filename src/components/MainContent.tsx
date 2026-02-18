@@ -7,7 +7,7 @@ import Evt from '../assets/EventRegistration.png';
 import tnt from '../assets/tnt/tntThumbnail.png';
 import ReviewHero from '../assets/reviewHero.png';
 import Hacktivate from '../assets/hacktivate.png';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 export default function MainContent() {
     useEffect(() => {
